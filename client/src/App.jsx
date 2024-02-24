@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme } from "./utils/Theme";
+import { darkTheme, lightTheme } from "./utils/Theme";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/HeroSection.jsx";
 import Skills from "./components/Skills.jsx";
