@@ -138,7 +138,6 @@ const MobileMenu = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 16px;
   position: absolute;
   top: 80px;
@@ -149,7 +148,7 @@ const MobileMenu = styled.ul`
   transition: all 0.6s ease-in-out;
   transform: ${({ open }) => (open ? "translateY(0)" : "translateY(-100%)")};
   border-radius: 0 0 20px 20px;
-  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.4);
   opacity: ${({ open }) => (open ? "100%" : "0")};
   z-index: ${({ open }) => (open ? "1" : "-1")};
 `;
@@ -177,20 +176,19 @@ const Navbar = () => {
   return (
     <Nav>
       <NavContainer>
-        <NavLogo to='/'>
-          <a
-            style={{
-              display: "flex",
-              alignItems: "center",
-              color: "white",
-              marginBottom: "20",
-              cursor: "pointer",
-            }}
-          >
-            <DiCssdeck size='3rem' />
-            <Span>Brian</Span>
-            <SpanLogo>Dev</SpanLogo>
-          </a>
+        <NavLogo
+          style={{
+            display: "flex",
+            alignItems: "center",
+            color: "white",
+            marginBottom: "20",
+            cursor: "pointer",
+          }}
+          to='/'
+        >
+          <DiCssdeck size='3rem' />
+          <Span>Brian</Span>
+          <SpanLogo>Dev</SpanLogo>
         </NavLogo>
         <MobileIcon>
           <FaBars onClick={menuHandler} />
