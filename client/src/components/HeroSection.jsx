@@ -139,6 +139,7 @@ const Span = styled.span`
   color: ${({ theme }) => theme.primary};
   cursor: pointer;
   font-family: monospace;
+  font-weight: bold;
 `;
 
 const SubTitle = styled.div`
@@ -239,7 +240,7 @@ const Hero = () => {
               {Bio.name}
             </Title>
             <TextLoop>
-              And I'm a
+              I'm a
               <Span>
                 <Typewriter
                   words={Bio.roles}
