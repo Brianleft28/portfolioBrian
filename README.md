@@ -1,3 +1,4 @@
-## Styled Components, Material UI
+# Portfolio
 
-## Dynamic data for the portfolio
+- Styled Components, Material UI
+- Dynamic data for the portfolio
