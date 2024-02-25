@@ -17,8 +17,8 @@ const Body = styled.div`
 const Wrapper = styled.div`
   padding-bottom: 100px;
   background: linear-gradient(
-      38.73deg,
-      rgba(204, 0, 187, 0.15) 0%,
+      18.73deg,
+      rgba(255, 0, 234, 0.234) 0%,
       rgba(201, 32, 184, 0) 50%
     ),
     linear-gradient(

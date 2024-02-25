@@ -7,17 +7,21 @@ import HeroBgAnimation from "./HeroBgAnimation/index.jsx";
 const HeroBg = styled.div`
   position: absolute;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   top: 50%;
   right: 0;
   left: 50%;
   bottom: 0;
-  width: 90%;
+  width: 100%;
   height: 100%;
   padding: 0 30px;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 
+  @media screen and (max-width: 960px) {
+    padding: 0px 0px;
+    justify-content: center;
+  }
   @media screen and (max-width: 960px) {
     padding: 0px 0px;
     justify-content: center;
@@ -114,6 +118,11 @@ const Title = styled.h1`
     line-height: 48px;
     margin-bottom: 8px;
   }
+  @media screen and (max-width: 480px) {
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 16px;
+  }
 `;
 
 const TextLoop = styled.div`
@@ -130,6 +139,11 @@ const TextLoop = styled.div`
 
   @media screen and (max-width: 640px) {
     font-size: 22px;
+    line-height: 48px;
+    margin-bottom: 16px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
     line-height: 48px;
     margin-bottom: 16px;
   }
@@ -191,8 +205,8 @@ const ResumeButton = styled.a`
   font-size: 20px;
 
   &:hover {
-    transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
+    transform: scale(0.95);
+    transition: all 0.2s ease-in-out;
     box-shadow: 20px 20px 60px #1f2634;
     filter: brightness(1);
   }
@@ -223,6 +237,10 @@ const Image = styled.img`
   @media screen and (max-width: 640px) {
     max-height: 280px;
     max-width: 280px;
+  }
+  @media screen and (max-width: 480px) {
+    max-height: 185px;
+    max-width: 185px;
   }
 `;
 
