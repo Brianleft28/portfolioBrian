@@ -15,6 +15,9 @@ export const Bio = {
   twitter: "https://twitter.com/Brianleft28",
 };
 
+export const descSkillEn =
+  "Here are some of my skills on which i have been working on for thepast year";
+
 export const skills = [
   {
     title: "Frontend",

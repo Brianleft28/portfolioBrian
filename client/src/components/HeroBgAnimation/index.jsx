@@ -1,5 +1,4 @@
-import React from "react";
-import { Div } from "./HeroBgAnimationStyle";
+import { Div } from "./HeroBgAnimationStyle.jsx";
 const HeroBgAnimation = () => (
   <Div>
     <svg

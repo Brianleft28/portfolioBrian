@@ -240,7 +240,7 @@ const Hero = () => {
               {Bio.name}
             </Title>
             <TextLoop>
-              I'm a
+              I´m a
               <Span>
                 <Typewriter
                   words={Bio.roles}
@@ -255,7 +255,7 @@ const Hero = () => {
             </TextLoop>
             <SubTitle>{Bio.description}</SubTitle>
             <ResumeButton href={Bio.resume} target='_blank'>
-              Download Resume
+              Check Resume
             </ResumeButton>
           </HeroLeftContainer>
           <HeroRightContainer>
