@@ -126,17 +126,17 @@ const SkillsImage = styled.img`
 
 const Skills = () => {
   return (
-    <Container id='#skills'>
+    <Container id='skills'>
       <Wrapper>
         <Title>Skills</Title>
         <Desc>{Descr}</Desc>
         <SkillsContainer>
-          {skills.map((item) => (
-            <Skill key={item}>
+          {skills.map((item, subIndex) => (
+            <Skill key={subIndex}>
               <SkillTittle>{item.title}</SkillTittle>
               <SkillList>
-                {item.skills.map((skills) => (
-                  <SkillItem key={skills}>
+                {item.skills.map((skills, subIndex) => (
+                  <SkillItem key={subIndex}>
                     <SkillsImage src={skills.image} />
                     {skills.name}
                   </SkillItem>

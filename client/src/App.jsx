@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/HeroSection.jsx";
 import Skills from "./components/Skills.jsx";
 import Education from "./components/Education.jsx";
+import Experience from "./components/Experience.jsx";
+import Projects from "./components/Projects.jsx";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -40,8 +42,9 @@ function App() {
             <Hero />
             <Wrapper>
               <Skills />
-              <Education />
+              <Experience />
             </Wrapper>
+            <Projects />
           </Body>
         </Router>
       </ThemeProvider>
