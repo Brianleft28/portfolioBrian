@@ -67,6 +67,7 @@ const Skill = styled.div`
   border: 0.1px solid ${({ theme }) => theme.primary};
   border-radius: 16px;
   padding: 18px 36px;
+  cursor: pointer;
 
   @media screen and (max-width: 768px) {
     max-width: 400px;
