@@ -35,9 +35,10 @@ const Top = styled.div`
   width: 100%;
 `;
 
-const Logo = styled.div`
+const Logo = styled.img`
   height: 50px;
-  background-color: #000;
+  width: 50px;
+  background-color: transparent;
   border-radius: 10px;
   margin-top: 4px;
 
@@ -54,11 +55,39 @@ const Body = styled.div`
 
 const Role = styled.div`
   font-size: 18px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary + 99};
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
-const Company = styled.div``;
+const Company = styled.div`
+  font-size: 14px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.text_primary + 80};
 
-const Duration = styled.div``;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+const Duration = styled.div`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.text_primary + 80};
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+  }
+`;
+
+const Description = styled.div`
+  width: 100%;
+  font-size: 15px;
+  font-weight: 400;
+  color: ${(theme) => theme.text_primary + 99};
+`;
 
 const ExperienceCard = ({ experiences }) => {
   return (
@@ -67,11 +96,11 @@ const ExperienceCard = ({ experiences }) => {
         <Logo src={experiences.img} />
         <Body>
           <Role>{experiences.role}</Role>
-          <Company>{experiences.commpany}</Company>
+          <Company>{experiences.company}</Company>
           <Duration>{experiences.date}</Duration>
         </Body>
       </Top>
-      <Descripcion></Descripcion>
+      <Description>{experiences.desc}</Description>
       {experiences.doc && (
         <a target='new' href={experiences.doc}>
           <Document />
