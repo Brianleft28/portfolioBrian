@@ -12,7 +12,7 @@ const HeroBg = styled.div`
   right: 0;
   left: 50%;
   bottom: 0;
-  width: 100%;
+  width: 91%;
   height: 100%;
   padding: 0 30px;
   -webkit-transform: translateX(-50%) translateY(-50%);
