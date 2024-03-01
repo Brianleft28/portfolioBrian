@@ -264,7 +264,7 @@ const Hero = () => {
                   words={Bio.roles}
                   loop={0}
                   cursor
-                  cursorStyle='|'
+                  cursorStyle='_'
                   typeSpeed={55}
                   deleteSpeed={65}
                   delaySpeed={1200}

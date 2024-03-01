@@ -2,6 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { experiences } from "../../data/constants";
 
+const Document = styled.img`
+  height: 70px;
+  width: fit-content;
+  background-color: transparent;
+  border-radius: 10px;
+  display: none;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
 const Card = styled.div`
   width: 650px;
   border-radius: 10px;
@@ -18,6 +31,10 @@ const Card = styled.div`
   &:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
+  }
+
+  &:hover ${Document} {
+    display: flex;
   }
 
   @media screen and (max-width: 768px) {
@@ -112,10 +129,6 @@ const Skill = styled.div`
   }
 `;
 
-const Document = styled.div`
-  font-size: 70px;
-`;
-
 const ExperienceCard = ({ experiences }) => {
   return (
     <Card>
@@ -145,7 +158,7 @@ const ExperienceCard = ({ experiences }) => {
       </Description>
       {experiences.doc && (
         <a target='new' href={experiences.doc}>
-          <Document />
+          <Document src={experiences.doc} />
         </a>
       )}
     </Card>
