@@ -113,14 +113,17 @@ const Skills = styled.div`
   margin-top: 10px;
 `;
 
-const ItemWrapper = styled.div`
+const ItemWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 `;
 
-const Skill = styled.div`
+const Skill = styled.li`
   font-size: 15px;
+  list-style-type: disc;
+  margin-right: 2px;
+  margin-left: 15px;
   font-weight: 400;
   color: ${({ theme }) => theme.text_primary + 99};
 

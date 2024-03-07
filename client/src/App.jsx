@@ -39,7 +39,7 @@ function App() {
         <Router>
           <Navbar />
           <Body>
-            <Hero />
+            <Hero set='/hero' />
             <Wrapper>
               <Skills />
               <Experience />

@@ -51,7 +51,34 @@ const Desc = styled.div`
 `;
 
 const ToggleGroup = styled.div`
-  width: 100%;
+  display: flex;
+  border: 1px solid ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.primary};
+  font-size: 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  margin: 22px 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+const ToggleButton = styled.div`
+  padding: 8px 18px;
+  cursor: pointer;
+  border-radius: 6px;
+
+  ${({ active }) =>
+    active &&
+    `
+    background-color: ${({ theme }) => theme.primary + 20};  
+  `}
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primary + 15};
+    color: white;
+  }
 `;
 
 const Projects = () => {
@@ -63,9 +90,11 @@ const Projects = () => {
           <Desc>
             Here some of my projects, can u check the code on my Github Profile.
           </Desc>
-          <ToggleGroup>
-            <ToggleButton>Web</ToggleButton>
-          </ToggleGroup>
+          {
+            <ToggleGroup>
+              <ToggleButton>web</ToggleButton>
+            </ToggleGroup>
+          }
         </Wrapper>
       </Container>
       ;
