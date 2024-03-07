@@ -57,7 +57,7 @@ const ToggleGroup = styled.div`
   font-size: 16px;
   border-radius: 12px;
   font-weight: 500;
-  margin: 22px 0;
+  margin: 22px;
 
   @media screen and (max-width: 768px) {
     font-size: 12px;
@@ -67,6 +67,7 @@ const ToggleGroup = styled.div`
 const ToggleButton = styled.div`
   padding: 8px 18px;
   cursor: pointer;
+  margin: 0 16px;
   border-radius: 6px;
 
   ${({ active }) =>
@@ -76,9 +77,18 @@ const ToggleButton = styled.div`
   `}
 
   &:hover {
-    background-color: ${({ theme }) => theme.primary + 15};
-    color: white;
+    background-color: ${({ theme }) => theme.primary + 8};
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 6px 8px;
+    border-radius: 4px;
+  }
+`;
+
+const Divider = styled.div`
+  width: 1.5px;
+  background-color: ${({ theme }) => theme.primary};
 `;
 
 const Projects = () => {
@@ -92,7 +102,14 @@ const Projects = () => {
           </Desc>
           {
             <ToggleGroup>
-              <ToggleButton>web</ToggleButton>
+              <ToggleButton>All</ToggleButton>
+              <Divider />
+              <ToggleButton>Web App's</ToggleButton>
+              <Divider />
+              <ToggleButton>Android App's</ToggleButton>
+              <Divider />
+              <ToggleButton>Machine Learning</ToggleButton>
+              <Divider />
             </ToggleGroup>
           }
         </Wrapper>
