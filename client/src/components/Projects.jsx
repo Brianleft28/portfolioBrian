@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -67,13 +67,12 @@ const ToggleGroup = styled.div`
 const ToggleButton = styled.div`
   padding: 8px 18px;
   cursor: pointer;
-  margin: 0 16px;
   border-radius: 6px;
 
-  ${({ active }) =>
+  ${({ active, theme }) =>
     active &&
-    `
-    background-color: ${({ theme }) => theme.primary + 20};  
+    `    
+    background-color: ${theme.primary + 20};  
   `}
 
   &:hover {
@@ -92,6 +91,7 @@ const Divider = styled.div`
 `;
 
 const Projects = () => {
+  const [toggle, setToggle] = useState("all");
   return (
     <>
       <Container id='projects'>
@@ -102,14 +102,47 @@ const Projects = () => {
           </Desc>
           {
             <ToggleGroup>
-              <ToggleButton>All</ToggleButton>
+              {toggle === "all" ? (
+                <ToggleButton
+                  active={toggle === "all"}
+                  value='all'
+                  onClick={() => setToggle("all")}
+                >
+                  All
+                </ToggleButton>
+              ) : (
+                <ToggleButton value='all' onClick={() => setToggle("all")}>
+                  All
+                </ToggleButton>
+              )}
               <Divider />
-              <ToggleButton>Web App's</ToggleButton>
+              {toggle === "web app" ? (
+                <ToggleButton
+                  active={toggle === "web app"}
+                  onClick={() => setToggle("web app")}
+                >
+                  Web App's
+                </ToggleButton>
+              ) : (
+                <ToggleButton onClick={() => setToggle("web app")}>
+                  Web App's
+                </ToggleButton>
+              )}
               <Divider />
-              <ToggleButton>Android App's</ToggleButton>
+              {toggle === "android app" ? (
+                <ToggleButton
+                  active={toggle === "android app"}
+                  onClick={() => setToggle("android app")}
+                >
+                  Android App's
+                </ToggleButton>
+              ) : (
+                <ToggleButton onClick={() => setToggle("android app")}>
+                  Android App's
+                </ToggleButton>
+              )}
               <Divider />
               <ToggleButton>Machine Learning</ToggleButton>
-              <Divider />
             </ToggleGroup>
           }
         </Wrapper>
