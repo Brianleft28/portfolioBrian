@@ -10,7 +10,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/Brianleft28",
   resume:
-    "https://drive.google.com/file/d/17Y1LGsE_-_clT-SdoyIm0DF4SuteYafZ/view?usp=sharing",
+    "https://drive.google.com/file/d/1WuIuUAVRnETJPykDJ58SYhoqZgdmj1Xg/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/brian-benegas-44770729b/",
   twitter: "https://twitter.com/Brianleft28",
 };
@@ -242,7 +242,7 @@ export const experiences = [
   },
   {
     id: 5,
-    img: "http://apps.ituzaingo.dns/assets/brand-8572ae44.png",
+    img: "https://www.miituzaingo.gov.ar/sites/default/files/gallery/escudo/escudo2.png",
     role: "Support IT",
     company: "Municipalidad de Ituzaingó",
     date: "Sep 2023 - Present",
