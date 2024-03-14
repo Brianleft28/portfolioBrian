@@ -1,179 +1,97 @@
 import React from "react";
 import styled from "styled-components";
+import Timeline from "@mui/lab/Timeline";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import TimelineContent from "@mui/lab/TimelineContent";
+import TimelineDot from "@mui/lab/TimelineDot";
+
 import { experiences } from "../data/constants";
+import { experience_data } from "../data/constants";
+import ExperienceCard from "./Cards/ExperienceCard";
 
-const Document = styled.img`
-  display: none;
-  height: 70px;
-  width: fit-content;
-  background-color: #000;
-  border-radius: 10px;
-  &:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-`;
-
-const Description = styled.div`
-  width: 100%;
-  font-size: 15px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 99};
-  margin-bottom: 10px;
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
-
-const Span = styled.span`
-  overflow: hidden;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-`;
-
-const Card = styled.div`
-  width: 650px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 12px 16px;
-  justify-content: space-between;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-  }
-  @media only screen and (max-width: 768px) {
-    padding: 10px;
-    gap: 8px;
-    width: 300px;
-  }
-
-  &:hover ${Document} {
-    display: flex;
-  }
-
-  &:hover ${Span} {
-    overflow: visible;
-    -webkit-line-clamp: unset;
-  }
-
-  border: 0.1px solid #306ee8;
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+  z-index: 1;
 `;
 
-const Top = styled.div`
-  width: 100%;
+const Wrapper = styled.div`
+  max-width: 1100px;
+  position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   gap: 12px;
 `;
 
-const Image = styled.img`
-  height: 50px;
-  background-color: #000;
-  border-radius: 10px;
-  margin-top: 4px;
-  @media only screen and (max-width: 768px) {
-    height: 40px;
-  }
-`;
-
-const Body = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Role = styled.div`
-  font-size: 18px;
+const Title = styled.div`
+  font-size: 42px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_primary + 99};
-  @media only screen and (max-width: 768px) {
-    font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+  color: ${({ theme }) => theme.text_primary};
+
+  @media screen and (max-width: 768px) {
+    margin-top: 12px;
+    font-size: 32px;
   }
 `;
 
-const Company = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_secondary + 99};
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
+const Desc = styled.div`
+  font-size: 18px;
+  max-width: 600px;
+  padding: 0 20px;
+  text-align: center;
+  color: ${({ theme }) => theme.text_secondary};
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 
-const Date = styled.div`
-  font-size: 12px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 80};
-  @media only screen and (max-width: 768px) {
-    font-size: 10px;
-  }
-`;
-
-const Skills = styled.div`
+const TimeLineSection = styled.div`
   width: 100%;
+  max-width: 1000px;
+  margin-top: 10px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 12px;
-  margin-top: -10px;
 `;
 
-const ItemWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-`;
-
-const Skill = styled.div`
-  font-size: 15px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 99};
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
-
-const ExperienceCard = ({ experience }) => {
+const Experience = () => {
+  const Experience = experience_data[0];
   return (
-    <Card>
-      <Top>
-        <Image src={experiences.img} />
-        <Body>
-          <Role>{experiences.role}</Role>
-          <Company>{experiences.company}</Company>
-          <Date>{experiences.date}</Date>
-        </Body>
-      </Top>
-      <Description>
-        {experiences?.desc && <Span>{experiences?.desc}</Span>}
-        {experiences?.skills && (
-          <>
-            <br />
-            <Skills>
-              <b>Skills:</b>
-              <ItemWrapper>
-                {experiences?.skills?.map((skill, index) => (
-                  <Skill>• {skill}</Skill>
-                ))}
-              </ItemWrapper>
-            </Skills>
-          </>
-        )}
-      </Description>
-      {experience.doc && (
-        <a href={experiences.doc} target='new'>
-          <Document src={experiences.doc} />
-        </a>
-      )}
-    </Card>
+    <Container id='experience'>
+      <Wrapper>
+        <Title>{Experience.title_EN}</Title>
+        <Desc>{Experience.desc_EN}</Desc>
+        <TimeLineSection>
+          <Timeline>
+            {experiences.map((experiences, index) => (
+              <TimelineItem key={index}>
+                <TimelineSeparator>
+                  <TimelineDot variant='outlined' color='secondary' />
+                  {index !== experiences.length - 1 && <TimelineConnector />}
+                </TimelineSeparator>
+                <TimelineContent sx={{ py: "12px", px: "2" }}>
+                  <ExperienceCard experiences={experiences} />
+                </TimelineContent>
+              </TimelineItem>
+            ))}
+          </Timeline>
+        </TimeLineSection>
+      </Wrapper>
+    </Container>
   );
 };
 
-export default ExperienceCard;
+export default Experience;

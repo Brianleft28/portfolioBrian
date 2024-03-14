@@ -116,6 +116,10 @@ const GithubButton = styled.button`
   @media screen and (max-width: 648px) {
     font-size: 0.8rem;
   }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const SpanLogo = styled.span`
