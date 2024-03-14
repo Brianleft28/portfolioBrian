@@ -45,6 +45,9 @@ function App() {
               <Experience />
             </Wrapper>
             <Projects />
+            <Wrapper>
+              <Education />
+            </Wrapper>
           </Body>
         </Router>
       </ThemeProvider>
