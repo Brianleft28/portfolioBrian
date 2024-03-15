@@ -21,7 +21,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  max-width: 1100px;
+  max-width: 1350px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   gap: 12px;
-
+  padding: 10px 0 100px 0;
   /*  @media screen and (max-width: ) {
     
   } */
