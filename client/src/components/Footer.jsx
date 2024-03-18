@@ -71,6 +71,7 @@ const SocialMediaIcon = styled.a`
   font-size: 1.5rem;
   color: ${({ theme }) => theme.text_primary};
   transition: color 0.2s ease-in-out;
+  cursor: pointer;
   &:hover {
     color: ${({ theme }) => theme.primary};
   }
@@ -87,7 +88,7 @@ function Footer() {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Rishav Chanda</Logo>
+        <Logo>Brian Nahuel Benegas</Logo>
         <Nav>
           <NavLink href='#about'>About</NavLink>
           <NavLink href='#skills'>Skills</NavLink>
@@ -96,20 +97,13 @@ function Footer() {
           <NavLink href='#education'>Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target='display'>
-            <FacebookIcon />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target='display'>
-            <TwitterIcon />
-          </SocialMediaIcon>
           <SocialMediaIcon href={Bio.linkedin} target='display'>
             <LinkedInIcon />
           </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target='display'>
-            <InstagramIcon />
-          </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright>&copy; 2023 Rishav Chanda. All rights reserved.</Copyright>
+        <Copyright>
+          &copy; 2023 Brian Nahuel Benegas. All rights reserved.
+        </Copyright>
       </FooterWrapper>
     </FooterContainer>
   );
