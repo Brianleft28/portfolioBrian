@@ -4,10 +4,14 @@ import styled, { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./utils/Theme";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/HeroSection.jsx";
+import ProjectDetails from "./components/ProjectDetails.jsx";
 import Skills from "./components/Skills.jsx";
 import Education from "./components/Education.jsx";
 import Experience from "./components/Experience.jsx";
 import Projects from "./components/Projects.jsx";
+import { useState } from "react";
+import { Contact } from "./components/Contact.jsx";
+import Footer from "./components/Footer.jsx";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -33,6 +37,8 @@ const Wrapper = styled.div`
 `;
 
 function App() {
+  const [openModal, setOpenModal] = useState({ state: false, project: null });
+  console.log(openModal);
   return (
     <>
       <ThemeProvider theme={darkTheme}>
@@ -44,10 +50,19 @@ function App() {
               <Skills />
               <Experience />
             </Wrapper>
-            <Projects />
+            <Projects openModal={openModal} setOpenModal={setOpenModal} />
+
             <Wrapper>
               <Education />
+              <Contact />
             </Wrapper>
+            <Footer />
+            {openModal.state && (
+              <ProjectDetails
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+              />
+            )}
           </Body>
         </Router>
       </ThemeProvider>
