@@ -2,7 +2,7 @@ import styled, { useTheme } from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 import { DiCssdeck } from "react-icons/di";
 import { useState } from "react";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaRegMoon } from "react-icons/fa";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.card_light};
@@ -179,6 +179,13 @@ const Navbar = () => {
 
   const theme = useTheme();
 
+  const [otherTheme, SetotherTheme] = useState(theme);
+
+  const themeHandler = () => {
+    SetotherTheme(!otherTheme);
+    console.log(otherTheme);
+  };
+
   return (
     <Nav>
       <NavContainer>
@@ -205,6 +212,10 @@ const Navbar = () => {
           <NavLink href='#experience'>Experience</NavLink>
           <NavLink href='#projects'>Projects</NavLink>
           <NavLink href='#education'>Education</NavLink>
+          <NavLink href='#contact'>Contact</NavLink>
+          <NavLink onClick={themeHandler}>
+            <FaRegMoon />
+          </NavLink>
         </NavItems>
         <ButtonContainer>
           <GithubButton>
@@ -230,6 +241,9 @@ const Navbar = () => {
           </MobileMenuLinks>
           <MobileMenuLinks href='#education' onClick={menuHandler}>
             Education
+          </MobileMenuLinks>
+          <MobileMenuLinks href='#education' onClick={menuHandler}>
+            Contact
           </MobileMenuLinks>
           <GithubButton
             style={{

@@ -149,6 +149,7 @@ export const Contact = () => {
       .then(
         (result) => {
           setOpen(true);
+          console.log(result);
           form.current.reset();
         },
         (error) => {
@@ -160,7 +161,7 @@ export const Contact = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Contact</Title>
+        <Title id='contact'>Contact</Title>
         <Desc>
           Feel free to reach out to me for any questions or opportunities!
         </Desc>
