@@ -35,7 +35,7 @@ export const translations = {
     Experience: {
       title: "Experiencia",
       subtitle:
-        "Mi experiencia laboral. Abarca tanto proyectos indendientes como las diferentes empresas en las cuales trabajé. ",
+        "Mi experiencia laboral. Abarca tanto proyectos independientes como las diferentes empresas en las cuales trabajé. ",
       companies: {
         name: "Flipr Inovations Pvt. Ltd.",
         date: "Ago 2023 - Oct 2023",
@@ -77,7 +77,7 @@ export const translations = {
         "Here are some of my skills on which i have been working on for the past year",
     },
     Experience: {
-      title: "Experiencia",
+      title: "Experience",
       subtitle:
         "Mi experiencia laboral. Abarca tanto proyectos indendientes como las diferentes empresas en las cuales trabajé. ",
       companies: {

@@ -168,7 +168,6 @@ export const experiences = [
       "Node Js",
       " Next Js",
     ],
-    doc: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/1696514649120.jpeg?alt=media&token=e7f6757b-edfa-4138-a692-d6709eeef3e2",
   },
   {
     id: 1,
@@ -197,8 +196,6 @@ export const experiences = [
       "Vite",
       "Jest",
     ],
-
-    doc: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/Screenshot%20from%202024-01-25%2022-38-31.png?alt=media&token=2785903f-1a4e-41f5-afd2-6adcfe56d058",
   },
 ];
 
