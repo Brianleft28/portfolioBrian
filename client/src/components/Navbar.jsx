@@ -4,6 +4,7 @@ import { DiCssdeck } from "react-icons/di";
 import { useState } from "react";
 import { FaBars, FaRegMoon } from "react-icons/fa";
 import Switcher from "./Switcher/Switcher";
+import { translations } from "../data/translations";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.card_light};
@@ -47,13 +48,12 @@ const NavLogo = styled(LinkR)`
 
 const MobileIcon = styled.div`
   display: none;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1080px) {
     display: block;
     position: absolute;
     top: 0;
-
     right: 0;
-    transform: translate(-100%, 50%);
+    transform: translate(-55%, 100%);
     font-size: 25px;
     cursor: pointer;
     color: ${({ theme }) => theme.text_primary};
@@ -68,7 +68,7 @@ const NavItems = styled.ul`
   gap: 12px;
   list-style: none;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1078px) {
     display: none;
   }
 `;
@@ -77,6 +77,8 @@ const NavLink = styled.a`
   color: ${({ theme }) => theme.text_primary};
   font-weight: 500;
   cursor: pointer;
+  min-width: 70px;
+  margin-left: 15px;
   text-decoration: none;
   transition: 0.2s ease-in-out;
   &:hover {
@@ -103,9 +105,10 @@ const SwitcherContainer = styled.div`
 `;
 
 const GithubButton = styled.button`
-  border: 1px solid ${({ theme }) => theme.primary};
-
-  color: ${({ theme }) => theme.primary};
+  padding: "10px 16px";
+  background: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text_primary};
+  width: "max-content";
   border: 1.8px solid ${({ theme }) => theme.primary};
   border-radius: 20px;
   display: flex;
@@ -116,15 +119,16 @@ const GithubButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   height: 70%;
+
   &:hover {
-    background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.text_primary};
+    background: ${({ theme }) => theme.bg};
+    color: ${({ theme }) => theme.primary};
   }
   @media screen and (max-width: 648px) {
     font-size: 0.8rem;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1080px) {
     display: none;
   }
 `;
@@ -205,17 +209,29 @@ const Navbar = ({ handleThemeChange }) => {
           <FaBars onClick={menuHandler} />
         </MobileIcon>
         <NavItems>
-          <NavLink href='#about'>About</NavLink>
-          <NavLink href='#skills'>Skills</NavLink>
-          <NavLink href='#experience'>Experience</NavLink>
-          <NavLink href='#projects'>Projects</NavLink>
-          <NavLink href='#education'>Education</NavLink>
-          <NavLink href='#contact'>Contact</NavLink>
+          <NavLink href='#about'>
+            {translations.es.HeaderNav.items.About}
+          </NavLink>
+          <NavLink href='#skills'>
+            {translations.es.HeaderNav.items.Skills}
+          </NavLink>
+          <NavLink href='#experience'>
+            {translations.es.HeaderNav.items.Experience}
+          </NavLink>
+          <NavLink href='#projects'>
+            {translations.es.HeaderNav.items.Projects}
+          </NavLink>
+          <NavLink href='#education'>
+            {translations.es.HeaderNav.items.Education}
+          </NavLink>
+          <NavLink href='#contact'>
+            {translations.es.HeaderNav.items.Contact}
+          </NavLink>
         </NavItems>
         <ButtonContainer>
           <GithubButton>
             <a href='https://www.github.com/brianleft28' target='_blank'>
-              Github Profile
+              {translations.es.HeaderNav.githubButton.buttonGithub}
             </a>
           </GithubButton>
         </ButtonContainer>
@@ -226,31 +242,24 @@ const Navbar = ({ handleThemeChange }) => {
       {open && (
         <MobileMenu open={open}>
           <MobileMenuLinks href='#about' onClick={menuHandler}>
-            About
+            {translations.es.HeaderNav.items.About}
           </MobileMenuLinks>
           <MobileMenuLinks href='#skills' onClick={menuHandler}>
-            Skills
+            {translations.es.HeaderNav.items.Skills}
           </MobileMenuLinks>
           <MobileMenuLinks href='#experience' onClick={menuHandler}>
-            Experience
+            {translations.es.HeaderNav.items.Skills}
           </MobileMenuLinks>
           <MobileMenuLinks href='#Projects' onClick={menuHandler}>
-            Projects
+            {translations.es.HeaderNav.items.Projects}
           </MobileMenuLinks>
           <MobileMenuLinks href='#education' onClick={menuHandler}>
-            Education
+            {translations.es.HeaderNav.items.Education}
           </MobileMenuLinks>
           <MobileMenuLinks href='#education' onClick={menuHandler}>
-            Contact
+            {translations.es.HeaderNav.items.Contact}
           </MobileMenuLinks>
-          <GithubButton
-            style={{
-              padding: "10px 16px",
-              background: `${theme.primary}`,
-              color: `${theme.text_primary}`,
-              width: "max-content",
-            }}
-          >
+          <GithubButton>
             <a href='https://github.com/Brianleft28' target='_blank'>
               {" "}
               Github Profile

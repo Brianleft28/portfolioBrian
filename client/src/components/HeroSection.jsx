@@ -3,6 +3,9 @@ import { Bio } from "../data/constants";
 import { Typewriter } from "react-simple-typewriter";
 import HeroImg from "../assets/HeroImage.png";
 import HeroBgAnimation from "./HeroBgAnimation/index.jsx";
+import { translations } from "../data/translations.js";
+
+const lan = translations;
 
 const HeroBg = styled.div`
   position: absolute;
@@ -253,27 +256,24 @@ const Hero = () => {
         </HeroBg>
         <HeroInnerContainer>
           <HeroLeftContainer>
-            <Title>
-              Hi, I am <br />
-              {Bio.name}
-            </Title>
+            <Title>{lan.es.HeroSection.name}</Title>
             <TextLoop>
-              I´m a
+              {lan.es.HeroSection.ima}
               <Span>
                 <Typewriter
                   words={Bio.roles}
                   loop={0}
                   cursor
-                  cursorStyle='_'
+                  cursorStyle='|'
                   typeSpeed={55}
                   deleteSpeed={65}
                   delaySpeed={1200}
                 />
               </Span>
             </TextLoop>
-            <SubTitle>{Bio.description}</SubTitle>
+            <SubTitle>{translations.es.HeroSection.subtitle}</SubTitle>
             <ResumeButton href={Bio.resume} target='_blank'>
-              Check Resume
+              {translations.es.HeroSection.resumeButton}
             </ResumeButton>
           </HeroLeftContainer>
           <HeroRightContainer>

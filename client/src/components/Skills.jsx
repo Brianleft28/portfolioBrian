@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import "../data/constants";
 import { skills, descSkillEn as Descr } from "../data/constants";
+import { translations } from "../data/translations";
 
 const Container = styled.div`
   display: flex;
@@ -128,8 +129,8 @@ const Skills = () => {
   return (
     <Container id='skills'>
       <Wrapper>
-        <Title>Skills</Title>
-        <Desc>{Descr}</Desc>
+        <Title>{translations.es.Skills.title}</Title>
+        <Desc>{translations.es.Skills.subtitle}</Desc>
         <SkillsContainer>
           {skills.map((item, subIndex) => (
             <Skill key={subIndex}>

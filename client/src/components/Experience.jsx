@@ -8,8 +8,8 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 
 import { experiences } from "../data/constants";
-import { experience_data } from "../data/constants";
 import ExperienceCard from "./Cards/ExperienceCard";
+import { translations } from "../data/translations";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,11 +76,8 @@ const index = () => {
   return (
     <Container id='experience'>
       <Wrapper>
-        <Title>Experience</Title>
-        <Desc>
-          My work experience as a software engineer and working on different
-          companies and projects.
-        </Desc>
+        <Title>{translations.es.Experience.title}</Title>
+        <Desc>{translations.es.Experience.subtitle}</Desc>
         <TimelineSection>
           <Timeline>
             {experiences.map((experience, index) => (
