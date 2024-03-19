@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import styled, { ThemeProvider, useTheme } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./utils/Theme";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/HeroSection.jsx";
@@ -12,7 +12,13 @@ import Projects from "./components/Projects.jsx";
 import { useState } from "react";
 import { Contact } from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import { translations } from "./data/translations.js";
 
+// Constante de idioma inicial
+const initialLanguage = "en";
+
+console.log(translations);
+// estilos
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;
@@ -37,15 +43,26 @@ const Wrapper = styled.div`
 `;
 
 function App() {
+  // Estado para el modal de proyects
   const [openModal, setOpenModal] = useState({ state: false, project: null });
+  // Estados y funciones para el cambio de tema
+  const [theme, setTheme] = useState("darkMode");
 
-  console.log(openModal);
+  const handleThemeChange = (theme) => {
+    const newTheme = theme === false ? false : true;
+    setTheme(newTheme);
+    console.log(theme);
+  };
+
+  // Estados y funciones para el cambio de idioma
+
+  const [language, setlanguage] = useState(initialLanguage);
 
   return (
     <>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme === true ? lightTheme : darkTheme}>
         <Router>
-          <Navbar />
+          <Navbar handleThemeChange={handleThemeChange} />
           <Body>
             <Hero set='/hero' />
             <Wrapper>
@@ -53,7 +70,6 @@ function App() {
               <Experience />
             </Wrapper>
             <Projects openModal={openModal} setOpenModal={setOpenModal} />
-
             <Wrapper>
               <Education />
               <Contact />

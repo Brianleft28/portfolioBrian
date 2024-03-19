@@ -3,6 +3,7 @@ import { Link as LinkR } from "react-router-dom";
 import { DiCssdeck } from "react-icons/di";
 import { useState } from "react";
 import { FaBars, FaRegMoon } from "react-icons/fa";
+import Switcher from "./Switcher/Switcher";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.card_light};
@@ -21,7 +22,7 @@ const Nav = styled.div`
 
 const NavContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 1500px;
   padding: 0 24px;
   display: flex;
   align-items: center;
@@ -93,6 +94,12 @@ const ButtonContainer = styled.div`
   @media screen and (max-width: 640px) {
     display: none;
   }
+`;
+
+const SwitcherContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: end;
 `;
 
 const GithubButton = styled.button`
@@ -170,20 +177,11 @@ const MobileMenuLinks = styled(LinkR)`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ handleThemeChange }) => {
   const [open, SetOpen] = useState(false);
 
   const menuHandler = () => {
     SetOpen(!open);
-  };
-
-  const theme = useTheme();
-
-  const [otherTheme, SetotherTheme] = useState(theme);
-
-  const themeHandler = () => {
-    SetotherTheme(!otherTheme);
-    console.log(otherTheme);
   };
 
   return (
@@ -213,9 +211,6 @@ const Navbar = () => {
           <NavLink href='#projects'>Projects</NavLink>
           <NavLink href='#education'>Education</NavLink>
           <NavLink href='#contact'>Contact</NavLink>
-          <NavLink onClick={themeHandler}>
-            <FaRegMoon />
-          </NavLink>
         </NavItems>
         <ButtonContainer>
           <GithubButton>
@@ -224,6 +219,9 @@ const Navbar = () => {
             </a>
           </GithubButton>
         </ButtonContainer>
+        <SwitcherContainer>
+          <Switcher onThemeChange={handleThemeChange} />
+        </SwitcherContainer>
       </NavContainer>
       {open && (
         <MobileMenu open={open}>
