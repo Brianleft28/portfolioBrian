@@ -5,6 +5,11 @@ export const Body = styled.div`
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  *::selection {
+    background: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.text_primary};
+    padding: 25px 25px;
+  }
 `;
 
 export const Wrapper = styled.div`

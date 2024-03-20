@@ -219,6 +219,7 @@ export const Image = styled.img`
   position: relative;
   border-radius: 50%;
   max-height: 300px;
+  cursor: pointer;
   max-width: 300px;
   border: 4px solid ${({ theme }) => theme.primary};
   object-fit: cover;
