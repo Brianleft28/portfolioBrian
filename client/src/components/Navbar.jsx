@@ -18,6 +18,7 @@ import {
   SpanLogo,
   SwitcherContainer,
 } from "./navbar.styles";
+import { motion } from "framer-motion";
 
 const Navbar = ({ handleThemeChange }) => {
   const [open, SetOpen] = useState(false);
@@ -30,7 +31,14 @@ const Navbar = ({ handleThemeChange }) => {
     <Nav>
       <NavContainer>
         <NavLogo
+          as={motion.div}
+          // animation
+          initial={{ opacity: 0, scale: 0.5, x: -500 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+          // estilos
           style={{
+            //styles
             display: "flex",
             alignItems: "center",
             color: "white",
@@ -46,7 +54,15 @@ const Navbar = ({ handleThemeChange }) => {
         <MobileIcon>
           <FaBars onClick={menuHandler} />
         </MobileIcon>
-        <NavItems>
+        <NavItems
+          as={motion.div}
+          // animation
+          initial={{ opacity: 0, scale: 0.5, y: -1500 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.75 }}
+
+          // animation
+        >
           <NavLink href='#about'>
             {translations.es.HeaderNav.items.About}
           </NavLink>
@@ -67,18 +83,35 @@ const Navbar = ({ handleThemeChange }) => {
           </NavLink>
         </NavItems>
         <ButtonContainer>
-          <GithubButton>
+          <GithubButton
+            as={motion.div}
+            // animation
+            initial={{ opacity: 0, scale: 0.5, x: 2500 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 1 }}
+          >
             <a href='https://www.github.com/brianleft28' target='_blank'>
               {translations.es.HeaderNav.githubButton.buttonGithub}
             </a>
           </GithubButton>
         </ButtonContainer>
-        <SwitcherContainer>
+        <SwitcherContainer
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.5, x: 2500 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+        >
           <Switcher onThemeChange={handleThemeChange} />
         </SwitcherContainer>
       </NavContainer>
       {open && (
-        <MobileMenu open={open}>
+        <MobileMenu
+          open={open}
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.5, x: 2500 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0 }}
+        >
           <MobileMenuLinks href='#about' onClick={menuHandler}>
             {translations.es.HeaderNav.items.About}
           </MobileMenuLinks>

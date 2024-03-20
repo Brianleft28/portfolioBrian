@@ -16,18 +16,45 @@ import {
   TextLoop,
   Title,
 } from "./herosection.styles.js";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <div id='about'>
       <HeroContainer>
-        <HeroBg>
-          <HeroBgAnimation />
+        <HeroBg
+          as={motion.div}
+          // animation
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1 }}
+        >
+          <HeroBgAnimation
+            as={motion.div}
+            // animation
+            initial={{ opacity: 0, x: -5000 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 1 }}
+          />
         </HeroBg>
         <HeroInnerContainer>
           <HeroLeftContainer>
-            <Title>{translations.es.HeroSection.name}</Title>
-            <TextLoop>
+            <Title
+              as={motion.div}
+              // animation
+              initial={{ opacity: 0, scale: 0.75, x: -500 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.25, delay: 1 }}
+            >
+              {translations.es.HeroSection.name}
+            </Title>
+            <TextLoop
+              as={motion.div}
+              // animation
+              initial={{ opacity: 0, scale: 0.5, x: -500 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 1 }}
+            >
               {translations.es.HeroSection.ima}
               <Span>
                 <Typewriter
@@ -41,13 +68,35 @@ const Hero = () => {
                 />
               </Span>
             </TextLoop>
-            <SubTitle>{translations.es.HeroSection.subtitle}</SubTitle>
-            <ResumeButton href={Bio.resume} target='_blank'>
+            <SubTitle
+              as={motion.div}
+              // animation
+              initial={{ opacity: 0, scale: 0.5, x: -500 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 1 }}
+            >
+              {translations.es.HeroSection.subtitle}
+            </SubTitle>
+            <ResumeButton
+              href={Bio.resume}
+              target='_blank'
+              as={motion.div}
+              // animation
+              initial={{ opacity: 0, scale: 0.5, x: -2000 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.75 }}
+            >
               {translations.es.HeroSection.resumeButton}
             </ResumeButton>
           </HeroLeftContainer>
-          <HeroRightContainer>
-            <Image src={HeroImg} alt='Hero' />
+          <HeroRightContainer
+            as={motion.div}
+            // animation
+            initial={{ opacity: 0, scale: 0.5, y: 2500 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.75 }}
+          >
+            <Image src={HeroImg} alt='Hero' as={motion.img} drag />
           </HeroRightContainer>
         </HeroInnerContainer>
       </HeroContainer>

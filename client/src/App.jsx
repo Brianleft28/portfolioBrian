@@ -14,6 +14,7 @@ import { Contact } from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 /* import { translations } from "./data/translations.js"; */
 import { Body, Wrapper } from "./app.styles.js";
+import { motion } from "framer-motion";
 
 // Constante de idioma inicial
 /* const initialLanguage = "en"; */
@@ -40,7 +41,12 @@ function App() {
       <ThemeProvider theme={theme === true ? lightTheme : darkTheme}>
         <Router>
           <Navbar handleThemeChange={handleThemeChange} />
-          <Body>
+          <Body
+            as={motion.div}
+            initial={{ opacity: 0.5, x: 5000 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <Hero set='/hero' />
             <Wrapper>
               <Skills />

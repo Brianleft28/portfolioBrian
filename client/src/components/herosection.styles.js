@@ -8,7 +8,7 @@ export const HeroBg = styled.div`
   right: 0;
   left: 50%;
   bottom: 0;
-  width: 91%;
+  width: 100%;
   height: 100%;
   padding: 0 30px;
   -webkit-transform: translateX(-50%) translateY(-50%);
@@ -83,7 +83,6 @@ export const HeroRightContainer = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 12px;
 
   @media screen and (max-width: 960px) {
     order: 1;
@@ -219,8 +218,8 @@ export const Image = styled.img`
   height: 100%;
   position: relative;
   border-radius: 50%;
-  max-height: 400px;
-  max-width: 400px;
+  max-height: 300px;
+  max-width: 300px;
   border: 4px solid ${({ theme }) => theme.primary};
   object-fit: cover;
   object-position: center;

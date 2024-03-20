@@ -30,7 +30,7 @@ function Footer() {
           </SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2023 Brian Nahuel Benegas. All rights reserved.
+          &copy; 2024 Brian Nahuel Benegas. All rights reserved.
         </Copyright>
       </FooterWrapper>
     </FooterContainer>
