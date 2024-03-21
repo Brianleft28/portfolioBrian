@@ -11,6 +11,11 @@ export const Nav = styled.div`
   position: sticky;
   top: 0;
   z-index: 10;
+  *::selection {
+    background: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.text_primary};
+    padding: 25px 25px;
+  }
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease;
   }
@@ -63,7 +68,7 @@ export const NavItems = styled.ul`
   gap: 12px;
   list-style: none;
 
-  @media screen and (max-width: 1078px) {
+  @media screen and (max-width: 1080px) {
     display: none;
   }
 `;
@@ -96,7 +101,8 @@ export const ButtonContainer = styled.div`
 export const SwitcherContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
+  margin-right: 50px;
 `;
 
 export const GithubButton = styled.button`

@@ -1,16 +1,16 @@
+export const items = [
+  { text: "Sobre mí", href: "#about" },
+  { text: "Habilidades", href: "#skills" },
+  { text: "Experiencia", href: "#experience" },
+  { text: "Projectos", href: "#projects" },
+  { text: "Educación", href: "#education" },
+  { text: "Contacto", href: "#contact" },
+];
 export const translations = {
   // translation en español
   es: {
     // Header //
     HeaderNav: {
-      items: {
-        About: "Sobre mí",
-        Skills: "Habilidades",
-        Experience: "Experiencia",
-        Projects: "Projectos",
-        Education: "Educación",
-        Contact: "Contacto",
-      },
       githubButton: {
         buttonGithub: "Perfil Github",
       },

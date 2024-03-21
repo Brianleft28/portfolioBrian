@@ -80,11 +80,13 @@ const Hero = () => {
             <ResumeButton
               href={Bio.resume}
               target='_blank'
-              as={motion.div}
+              as={motion.a}
               // animation
+
               initial={{ opacity: 0, scale: 0.5, x: -2000 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.75 }}
+              transition={{ duration: 1 }}
+              whileHover={{ scale: 1.1 }}
             >
               {translations.es.HeroSection.resumeButton}
             </ResumeButton>
@@ -92,9 +94,14 @@ const Hero = () => {
           <HeroRightContainer
             as={motion.div}
             // animation
-            initial={{ opacity: 0, scale: 0.5, y: 2500 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.75 }}
+            initial={{ x: 500 }}
+            animate={{ x: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 750,
+              duration: 0.5,
+              delay: 1,
+            }}
           >
             <Image src={HeroImg} alt='Hero' as={motion.img} drag />
           </HeroRightContainer>

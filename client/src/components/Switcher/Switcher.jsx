@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Switch = styled.div`
@@ -45,6 +45,9 @@ const Input = styled.input`
     &:before {
       transform: translate(20px, -14px);
     }
+    &:hover {
+      background: ${({ theme }) => theme.primary + 99};
+    }
   }
 `;
 
@@ -52,6 +55,7 @@ const Span = styled.span`
   font-size: 15px;
   font-weight: 600;
   color: ${({ theme }) => theme.primary};
+  cursor: pointer;
 `;
 
 const Switcher = ({ onThemeChange }) => {
@@ -60,7 +64,6 @@ const Switcher = ({ onThemeChange }) => {
 
   const handleChecked = (e) => {
     setChecked(e.target.checked);
-    console.log("cheques es: " + checked);
     SetDarkMode(checked ? false : true);
     onThemeChange(darkMode);
   };

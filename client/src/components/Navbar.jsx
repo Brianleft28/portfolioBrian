@@ -2,13 +2,13 @@ import { DiCssdeck } from "react-icons/di";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import Switcher from "./Switcher/Switcher";
-import { translations } from "../data/translations";
+import { items, translations } from "../data/translations";
 import {
   ButtonContainer,
   GithubButton,
   MobileIcon,
-  MobileMenu,
-  MobileMenuLinks,
+  /*   MobileMenu, */
+  /*   MobileMenuLinks, */
   Nav,
   NavContainer,
   NavItems,
@@ -19,6 +19,7 @@ import {
   SwitcherContainer,
 } from "./navbar.styles";
 import { motion } from "framer-motion";
+import { SideBar } from "./Sidebar/sidebar.styles";
 
 const Navbar = ({ handleThemeChange }) => {
   const [open, SetOpen] = useState(false);
@@ -27,8 +28,18 @@ const Navbar = ({ handleThemeChange }) => {
     SetOpen(!open);
   };
 
+  const variants = {
+    visible: (i) => ({
+      opacity: 1,
+      x: 10,
+      transition: { delay: i * 0.2 },
+    }),
+    hidden: { opacity: 0 },
+  };
+
   return (
     <Nav>
+      {/*  <SideBar /> */}
       <NavContainer>
         <NavLogo
           as={motion.div}
@@ -51,37 +62,36 @@ const Navbar = ({ handleThemeChange }) => {
           <Span>Brian</Span>
           <SpanLogo>Dev</SpanLogo>
         </NavLogo>
-        <MobileIcon>
-          <FaBars onClick={menuHandler} />
-        </MobileIcon>
-        <NavItems
+        {/*    <MobileIcon
           as={motion.div}
           // animation
-          initial={{ opacity: 0, scale: 0.5, y: -1500 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.75 }}
-
-          // animation
+          initial={{ opacity: 0, scale: 0.5, x: 800 }}
+          animate={{ opacity: 1, scale: 1.5, x: -30, y: 25 }}
+          transition={{ duration: 0.5, delay: 1 }}
         >
-          <NavLink href='#about'>
-            {translations.es.HeaderNav.items.About}
-          </NavLink>
-          <NavLink href='#skills'>
-            {translations.es.HeaderNav.items.Skills}
-          </NavLink>
-          <NavLink href='#experience'>
-            {translations.es.HeaderNav.items.Experience}
-          </NavLink>
-          <NavLink href='#projects'>
-            {translations.es.HeaderNav.items.Projects}
-          </NavLink>
-          <NavLink href='#education'>
-            {translations.es.HeaderNav.items.Education}
-          </NavLink>
-          <NavLink href='#contact'>
-            {translations.es.HeaderNav.items.Contact}
-          </NavLink>
+          <FaBars onClick={menuHandler} />
+        </MobileIcon> */}
+        <NavItems
+          as={motion.ul}
+          variants={variants}
+          initial='hidden'
+          animate='visible'
+        >
+          {items.map((item, i) => (
+            <NavLink
+              key={i}
+              as={motion.a}
+              variants={variants}
+              custom={i}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+              href={item.href}
+            >
+              {item.text}
+            </NavLink>
+          ))}
         </NavItems>
+
         <ButtonContainer>
           <GithubButton
             as={motion.div}
@@ -104,7 +114,7 @@ const Navbar = ({ handleThemeChange }) => {
           <Switcher onThemeChange={handleThemeChange} />
         </SwitcherContainer>
       </NavContainer>
-      {open && (
+      {/*  {open && (
         <MobileMenu
           open={open}
           as={motion.div}
@@ -130,14 +140,14 @@ const Navbar = ({ handleThemeChange }) => {
           <MobileMenuLinks href='#education' onClick={menuHandler}>
             {translations.es.HeaderNav.items.Contact}
           </MobileMenuLinks>
-          <GithubButton>
+            <GithubButton>
             <a href='https://github.com/Brianleft28' target='_blank'>
               {" "}
               Github Profile
             </a>
-          </GithubButton>
+          </GithubButton> 
         </MobileMenu>
-      )}
+      )} */}
     </Nav>
   );
 };
