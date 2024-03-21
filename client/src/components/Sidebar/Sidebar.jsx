@@ -28,12 +28,27 @@ const variants = {
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
+
+  const variantsItem = {
+    closed: {
+      staggerChildren: 0.1,
+    },
+    open: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  };
   return (
     <SideBar as={motion.div} animate={open ? "open" : "closed"}>
       <Bg as={motion.div} variants={variants}>
-        <Wrapper>
+        <Wrapper as={motion.div} variants={variantsItem}>
           {items.map((item, i) => (
-            <Links key={i} href={item.href}>
+            <Links
+              as={motion.a}
+              key={i}
+              href={item.href}
+              variants={variantsItem}
+            >
               {item.text}
             </Links>
           ))}
