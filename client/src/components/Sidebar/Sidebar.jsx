@@ -1,13 +1,45 @@
 import { Bg, SideBar } from "./sidebar.styles";
-import { Links } from "./Links/Links.jsx";
-import { ToggleButton } from "./ToggleButton/ToggleButton.jsx";
+import Links from "./Links/Links.jsx";
+import { useState } from "react";
+import ToggleButton from "./ToggleButton/ToggleButton.jsx";
+import { motion } from "framer-motion";
+import { Wrapper } from "./Links/links.styles.js";
+import { items } from "../../data/translations.js";
+
+const variants = {
+  open: {
+    clipPath: "circle(1200px at 50px 50px)",
+    transition: {
+      type: "spring",
+      stiffness: 35,
+    },
+  },
+  closed: {
+    clipPath: "circle(35px at 56px 59px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+};
+/* A */
+
 const Sidebar = () => {
+  const [open, setOpen] = useState(false);
   return (
-    <SideBar>
-      <Bg>
-        <Links>asd</Links>
+    <SideBar as={motion.div} animate={open ? "open" : "closed"}>
+      <Bg as={motion.div} variants={variants}>
+        <Wrapper>
+          {items.map((item, i) => (
+            <Links key={i} href={item.href}>
+              {item.text}
+            </Links>
+          ))}
+        </Wrapper>
       </Bg>
-      <ToggleButton></ToggleButton>
+      <ToggleButton setOpen={setOpen}>Button</ToggleButton>
     </SideBar>
   );
 };

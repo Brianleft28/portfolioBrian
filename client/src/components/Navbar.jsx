@@ -1,6 +1,5 @@
 import { DiCssdeck } from "react-icons/di";
 import { useState } from "react";
-import { FaBars } from "react-icons/fa";
 import Switcher from "./Switcher/Switcher";
 import { items, translations } from "../data/translations";
 import {
@@ -19,7 +18,6 @@ import {
   SwitcherContainer,
 } from "./navbar.styles";
 import { motion } from "framer-motion";
-import { SideBar } from "./Sidebar/sidebar.styles";
 
 const Navbar = ({ handleThemeChange }) => {
   const [open, SetOpen] = useState(false);
@@ -39,7 +37,6 @@ const Navbar = ({ handleThemeChange }) => {
 
   return (
     <Nav>
-      {/*  <SideBar /> */}
       <NavContainer>
         <NavLogo
           as={motion.div}
@@ -58,19 +55,14 @@ const Navbar = ({ handleThemeChange }) => {
           }}
           to='/'
         >
-          <DiCssdeck size='3rem' />
+          <DiCssdeck
+            size='3rem'
+            color={handleThemeChange === false ? "#be1adb" : "#854CE6"}
+          />
           <Span>Brian</Span>
           <SpanLogo>Dev</SpanLogo>
         </NavLogo>
-        {/*    <MobileIcon
-          as={motion.div}
-          // animation
-          initial={{ opacity: 0, scale: 0.5, x: 800 }}
-          animate={{ opacity: 1, scale: 1.5, x: -30, y: 25 }}
-          transition={{ duration: 0.5, delay: 1 }}
-        >
-          <FaBars onClick={menuHandler} />
-        </MobileIcon> */}
+
         <NavItems
           as={motion.ul}
           variants={variants}
@@ -114,40 +106,6 @@ const Navbar = ({ handleThemeChange }) => {
           <Switcher onThemeChange={handleThemeChange} />
         </SwitcherContainer>
       </NavContainer>
-      {/*  {open && (
-        <MobileMenu
-          open={open}
-          as={motion.div}
-          initial={{ opacity: 0, scale: 0.5, x: 2500 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0 }}
-        >
-          <MobileMenuLinks href='#about' onClick={menuHandler}>
-            {translations.es.HeaderNav.items.About}
-          </MobileMenuLinks>
-          <MobileMenuLinks href='#skills' onClick={menuHandler}>
-            {translations.es.HeaderNav.items.Skills}
-          </MobileMenuLinks>
-          <MobileMenuLinks href='#experience' onClick={menuHandler}>
-            {translations.es.HeaderNav.items.Skills}
-          </MobileMenuLinks>
-          <MobileMenuLinks href='#Projects' onClick={menuHandler}>
-            {translations.es.HeaderNav.items.Projects}
-          </MobileMenuLinks>
-          <MobileMenuLinks href='#education' onClick={menuHandler}>
-            {translations.es.HeaderNav.items.Education}
-          </MobileMenuLinks>
-          <MobileMenuLinks href='#education' onClick={menuHandler}>
-            {translations.es.HeaderNav.items.Contact}
-          </MobileMenuLinks>
-            <GithubButton>
-            <a href='https://github.com/Brianleft28' target='_blank'>
-              {" "}
-              Github Profile
-            </a>
-          </GithubButton> 
-        </MobileMenu>
-      )} */}
     </Nav>
   );
 };

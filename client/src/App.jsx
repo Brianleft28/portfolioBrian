@@ -14,6 +14,7 @@ import { Contact } from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 /* import { translations } from "./data/translations.js"; */
 import { Body, Wrapper } from "./app.styles.js";
+import Sidebar from "./components/Sidebar/Sidebar.jsx";
 
 // Constante de idioma inicial
 /* const initialLanguage = "en"; */
@@ -39,8 +40,9 @@ function App() {
     <>
       <ThemeProvider theme={theme === true ? lightTheme : darkTheme}>
         <Router>
-          <Navbar handleThemeChange={handleThemeChange} />
           <Body>
+            <Sidebar />
+            <Navbar handleThemeChange={handleThemeChange} />
             <Hero set='/hero' />
             <Wrapper>
               <Skills />

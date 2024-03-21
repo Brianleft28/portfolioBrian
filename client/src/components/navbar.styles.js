@@ -33,7 +33,7 @@ export const NavContainer = styled.div`
 `;
 
 export const NavLogo = styled(LinkR)`
-  width: 80%;
+  width: 100%;
   padding: 0 6px;
   display: flex;
   justify-self: flex-start;
@@ -41,8 +41,10 @@ export const NavLogo = styled(LinkR)`
   text-decoration: none;
   align-items: center;
   color: ${({ theme }) => theme.text_primary};
-  @media screen and (max-width: 640px) {
+
+  @media screen and (max-width: 1080px) {
     padding: 0 6px;
+    margin-left: 41%;
   }
 `;
 
@@ -103,6 +105,24 @@ export const SwitcherContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 50px;
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 1080px) {
+    margin-left: 125px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  @media screen and (max-width: 1250px) {
+    margin-left: -40px;
+  }
+  @media screen and (max-width: 750px) {
+    margin-left: 0px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
 `;
 
 export const GithubButton = styled.button`
@@ -130,6 +150,10 @@ export const GithubButton = styled.button`
   }
 
   @media screen and (max-width: 1080px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 1250px) {
     display: none;
   }
 `;
