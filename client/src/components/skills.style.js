@@ -46,6 +46,7 @@ export const Desc = styled.div`
 
   @media screen and (max-width: 768px) {
     font-size: 16px;
+    max-width: 500px;
   }
 `;
 

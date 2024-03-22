@@ -10,10 +10,16 @@ import {
   Tags,
   Title,
 } from "./projectcard.styles";
-
+import { motion } from "framer-motion";
 const ProjectCards = ({ project, setOpenModal }) => {
   return (
-    <Card onClick={() => setOpenModal({ state: true, project: project })}>
+    <Card
+      onClick={() => setOpenModal({ state: true, project: project })}
+      as={motion.div}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.1, delay: 0 }}
+    >
       <Image src={project.image} />
       <Tags>
         {project.tags?.map((tag, index) => (

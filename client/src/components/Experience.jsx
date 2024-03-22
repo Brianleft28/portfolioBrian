@@ -14,17 +14,39 @@ import {
   Title,
   Wrapper,
 } from "./experience.styles";
+import { motion } from "framer-motion";
 
 const index = () => {
   return (
     <Container id='experience'>
       <Wrapper>
-        <Title>{translations.es.Experience.title}</Title>
-        <Desc>{translations.es.Experience.subtitle}</Desc>
+        <Title
+          as={motion.div}
+          // animation
+          initial={{ opacity: 0, scale: 0.75, x: -200 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.25, delay: 0 }}
+        >
+          {translations.es.Experience.title}
+        </Title>
+        <Desc
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.75, x: 300 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.25, delay: 0.1 }}
+        >
+          {translations.es.Experience.subtitle}
+        </Desc>
         <TimelineSection>
           <Timeline>
             {experiences.map((experience, index) => (
-              <TimelineItem key={index}>
+              <TimelineItem
+                as={motion.div}
+                initial={{ opacity: 0, scale: 0.2, x: 200 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                key={index}
+              >
                 <TimelineSeparator>
                   <TimelineDot variant='outlined' color='secondary' />
                   {index !== experiences.length - 1 && (

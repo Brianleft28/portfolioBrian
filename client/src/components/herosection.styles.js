@@ -27,9 +27,10 @@ export const HeroBg = styled.div`
 export const HeroContainer = styled.div`
   background-color: ${({ theme }) => theme.card_light};
   display: flex;
-  justify-content: Center;
+  justify-content: center;
   position: relative;
   padding: 80px 30px;
+  min-height: 100vh;
 
   @media screen and (max-width: 960px) {
     padding: 66px 16px;
@@ -45,7 +46,7 @@ export const HeroContainer = styled.div`
 
 export const HeroInnerContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   max-width: 1100px;
@@ -63,6 +64,7 @@ export const HeroLeftContainer = styled.div`
   @media screen and (max-width: 960px) {
     order: 2;
     margin-bottom: 32px;
+    margin-top: -50px !important;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -71,6 +73,7 @@ export const HeroLeftContainer = styled.div`
   @media screen and (max-width: 640px) {
     order: 2;
     margin-bottom: 32px;
+    justify-content: center;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -159,6 +162,7 @@ export const SubTitle = styled.div`
 
   @media screen and (max-width: 960px) {
     text-align: center;
+    max-width: 600px;
   }
 
   @media screen and (max-width: 640px) {
@@ -218,9 +222,9 @@ export const Image = styled.img`
   height: 100%;
   position: relative;
   border-radius: 50%;
-  max-height: 300px;
+  max-height: 365px;
   cursor: pointer;
-  max-width: 300px;
+  max-width: 365px;
   border: 4px solid ${({ theme }) => theme.primary};
   object-fit: cover;
   object-position: center;
@@ -235,7 +239,8 @@ export const Image = styled.img`
     max-width: 280px;
   }
   @media screen and (max-width: 480px) {
-    max-height: 185px;
-    max-width: 185px;
+    max-height: 285px;
+    max-width: 285px;
+    margin-top: 50px;
   }
 `;

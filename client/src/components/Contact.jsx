@@ -13,6 +13,7 @@ import {
   Title,
   Wrapper,
 } from "./contact.styles.js";
+import { motion } from "framer-motion";
 
 export const Contact = () => {
   //hooks
@@ -42,9 +43,27 @@ export const Contact = () => {
 
   return (
     <Container>
-      <Wrapper>
-        <Title id='contact'>Contact</Title>
-        <Desc>
+      <Wrapper
+        as={motion.div}
+        initial={{ opacity: 0, scale: 0.1 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <Title
+          id='contact'
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.2, x: -200 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          Contact
+        </Title>
+        <Desc
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.2, x: 200 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           Feel free to reach out to me for any questions or opportunities!
         </Desc>
         <ContactForm ref={form} onSubmit={handleSubmit}>

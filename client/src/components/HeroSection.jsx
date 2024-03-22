@@ -26,13 +26,13 @@ const Hero = () => {
           as={motion.div}
           // animation
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
           <HeroBgAnimation
             as={motion.div}
             // animation
-            initial={{ opacity: 0, x: -5000 }}
+            initial={{ opacity: 0, x: -200 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
           />
@@ -42,18 +42,18 @@ const Hero = () => {
             <Title
               as={motion.div}
               // animation
-              initial={{ opacity: 0, scale: 0.75, x: -500 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.25, delay: 1 }}
+              initial={{ opacity: 0, scale: 0.75, x: 200 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.25, delay: 0 }}
             >
               {translations.es.HeroSection.name}
             </Title>
             <TextLoop
               as={motion.div}
               // animation
-              initial={{ opacity: 0, scale: 0.5, x: -500 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1 }}
+              initial={{ opacity: 0, scale: 0.75, x: -200 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.25, delay: 0, stiffness: 750 }}
             >
               {translations.es.HeroSection.ima}
               <Span>
@@ -71,9 +71,9 @@ const Hero = () => {
             <SubTitle
               as={motion.div}
               // animation
-              initial={{ opacity: 0, scale: 0.5, x: -500 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1 }}
+              initial={{ opacity: 0, scale: 0.75, x: 200 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.25, delay: 0 }}
             >
               {translations.es.HeroSection.subtitle}
             </SubTitle>
@@ -83,9 +83,9 @@ const Hero = () => {
               as={motion.a}
               // animation
 
-              initial={{ opacity: 0, scale: 0.5, x: -2000 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, scale: 0.75 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.25, delay: 0 }}
               whileHover={{ scale: 1.1 }}
             >
               {translations.es.HeroSection.resumeButton}
@@ -94,14 +94,10 @@ const Hero = () => {
           <HeroRightContainer
             as={motion.div}
             // animation
-            initial={{ x: 500 }}
-            animate={{ x: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 750,
-              duration: 0.5,
-              delay: 1,
-            }}
+
+            initial={{ opacity: 0, scale: 0.75, x: 30, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.25, delay: 0 }}
           >
             <Image src={HeroImg} alt='Hero' as={motion.img} drag />
           </HeroRightContainer>

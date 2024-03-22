@@ -14,10 +14,11 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
+  min-height: 100vh;
   max-width: 1350px;
   padding: 0px 0px 80px 0px;
   gap: 12px;

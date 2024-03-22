@@ -11,18 +11,36 @@ import {
   ToggleButtonGroup,
   Wrapper,
 } from "./projects.styles.js";
+import { motion } from "framer-motion";
 
 const Projects = ({ openModal, setOpenModal }) => {
   const [toggle, setToggle] = useState("all");
   return (
     <Container id='projects'>
       <Wrapper>
-        <Tittle>Projects</Tittle>
-        <Desc>
+        <Tittle
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.5, x: -200 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.25, delay: 0 }}
+        >
+          Projects
+        </Tittle>
+        <Desc
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.5, x: 200 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.25, delay: 0 }}
+        >
           I have worked on a wide range of projects. From web apps to android
           apps. Here are some of my projects.
         </Desc>
-        <ToggleButtonGroup>
+        <ToggleButtonGroup
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.2 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.25, delay: 0 }}
+        >
           {toggle === "all" ? (
             <ToggleButton active value='all' onClick={() => setToggle("all")}>
               All

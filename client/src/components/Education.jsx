@@ -13,20 +13,39 @@ import {
   Title,
   Wrapper,
 } from "./education.styles";
+import { motion } from "framer-motion";
 
 const Education = () => {
   return (
     <Container id='education'>
       <Wrapper>
-        <Title>Education</Title>
-        <Desc>
+        <Title
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.5, x: -200 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.25, delay: 0 }}
+        >
+          Education
+        </Title>
+        <Desc
+          as={motion.div}
+          initial={{ opacity: 0, scale: 0.5, x: 200 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.25, delay: 0 }}
+        >
           My education has been a a journey of self-discovery and growth. My
           educational details are as follows.
         </Desc>
         <TimeLineSection>
           <Timeline>
             {education.map((education, index) => (
-              <TimelineItem key={index}>
+              <TimelineItem
+                as={motion.div}
+                initial={{ opacity: 0, scale: 0.2, x: 200 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                key={index}
+              >
                 <TimelineContent sx={{ py: "12px", px: "2" }}>
                   <EducationCard education={education} />
                 </TimelineContent>
