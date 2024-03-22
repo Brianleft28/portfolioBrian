@@ -17,7 +17,7 @@ export const Bg = styled.div`
   z-index: 11;
   top: 0;
   left: 0;
-  width: 400px;
+  width: 300px;
   height: 100vh;
   justify-content: center;
   color: ${({ theme }) => theme.text_primary};

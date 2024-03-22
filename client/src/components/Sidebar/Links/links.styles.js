@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
 export const NavLink = styled.a`
   color: ${({ theme }) => theme.text_primary};
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 500;
   cursor: pointer;
   min-width: 70px;
